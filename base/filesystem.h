@@ -1,0 +1,4 @@
+#pragma once
+
+#include "filesystem.hpp"
+namespace fs = ghc::filesystem;

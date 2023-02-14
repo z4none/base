@@ -1,0 +1,19 @@
+#pragma once
+
+#include <string>
+#include <chrono>
+
+namespace base 
+{
+
+using namespace std::chrono_literals;
+using namespace std::chrono;
+
+// 
+time_t Now();
+
+// 
+std::string StrFormatTime(time_t t, const std::string & format = "%Y-%m-%d %H:%M:%S", bool tz = false);
+
+}; // namespace base
+
