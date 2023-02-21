@@ -30,4 +30,29 @@ fs::path GetAppDataDir()
     return {};
 }
 
+std::wstring GetErrorMsg(DWORD errCode, DWORD lang)
+{
+    LPWSTR messageText = nullptr;
+
+    __try
+    {
+        FormatMessage(
+            FORMAT_MESSAGE_ALLOCATE_BUFFER |
+            FORMAT_MESSAGE_FROM_SYSTEM |
+            FORMAT_MESSAGE_IGNORE_INSERTS,
+            NULL, errCode,
+            lang,
+            (LPWSTR)&messageText,
+            0, NULL);
+        return messageText;
+    }
+    __finally
+    {
+        if (messageText)
+        {
+            LocalFree(messageText);
+        }
+    }
+}
+
 } // namespace base
