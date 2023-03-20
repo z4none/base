@@ -6,6 +6,14 @@
 namespace base 
 {
 
+/*
+operator""h
+operator""min
+operator""s
+operator""ms
+operator""us
+operator""ns
+*/
 using namespace std::chrono_literals;
 using namespace std::chrono;
 
