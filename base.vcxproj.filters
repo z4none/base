@@ -45,6 +45,15 @@
     <ClInclude Include="base\throttle.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="defer.h">
+      <Filter>源文件</Filter>
+    </ClInclude>
+    <ClInclude Include="base\task.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="base\stream.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="base\base.cpp">

@@ -3,9 +3,6 @@
 #include <string>
 #include <chrono>
 
-namespace base 
-{
-
 /*
 operator""h
 operator""min
@@ -16,6 +13,9 @@ operator""ns
 */
 using namespace std::chrono_literals;
 using namespace std::chrono;
+
+namespace base 
+{
 
 // 
 time_t Now();
