@@ -25,6 +25,7 @@ class TaskRunner
 
 public:
     TaskRunner() {}
+    virtual ~TaskRunner() { Clear(); }
 
     void SetTimeout(Ms ms, Task task) 
     {
@@ -34,7 +35,7 @@ public:
 
     void Queue(const Task task)
     {
-        SetTimeout(1ms, task);
+        SetTimeout(0ms, task);
     }
 
     void Run()

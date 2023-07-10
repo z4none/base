@@ -110,6 +110,10 @@ int main()
         base::AtomicWriter() << "call 3" << std::endl;
     });
 
+    task_runner.Queue([]() {
+        base::AtomicWriter() << "call 0" << std::endl;
+    });
+
     while (1)
     {
         task_runner.Run();
