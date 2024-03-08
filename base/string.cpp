@@ -266,24 +266,20 @@ size_t StrSplit(const std::wstring & s, std::vector<std::wstring>& tokens, const
     return tokens.size();
 }
 
-// ÍÑÃô
-std::string Desensitize(const std::string & str, size_t left, size_t right, char ch)
+
+std::string Rot13(const std::string & str) 
 {
-    size_t sz = str.length();
-
-    if (left > sz)
-    {
-        left = sz;
+    std::string result = "";
+    for (char c : str) {
+        if (c >= 'a' && c <= 'z') {
+            c = 'a' + ((c - 'a' + 13) % 26);
+        }
+        else if (c >= 'A' && c <= 'Z') {
+            c = 'A' + ((c - 'A' + 13) % 26);
+        }
+        result += c;
     }
-
-    int mid = sz - left - right;
-    if (mid < 0)
-    {
-        mid = 0;
-        right = sz - left;
-    }
-
-    return str.substr(0, left) + std::string(mid, ch) + str.substr(sz - right);
+    return result;
 }
 
 } // namespace base

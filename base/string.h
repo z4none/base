@@ -54,7 +54,25 @@ size_t StrSplit(const std::string& s, std::vector<std::string>& tokens, const st
 size_t StrSplit(const std::wstring& s, std::vector<std::wstring>& tokens, const std::wstring& sep= L",");
 
 // 脱敏
-std::string Desensitize(const std::string & str, size_t left = 2, size_t right = 2, char ch = '*');
+template <typename T>
+std::basic_string<T> Desensitize(const std::basic_string<T>& str, size_t left = 2, size_t right = 2, T ch = '*', size_t max_mid = 999)
+{
+    int64_t sz = str.length();
+
+    if (left > sz)
+    {
+        left = sz;
+    }
+
+    int64_t mid = sz - left - right;
+    if (mid < 0)
+    {
+        mid = 0;
+        right = sz - left;
+    }
+
+    return str.substr(0, left) + std::basic_string<T>((std::min)((size_t)mid, max_mid), ch) + str.substr(sz - right);
+}
 
 // 格式化
 #ifdef _MSC_VER
@@ -93,5 +111,8 @@ T StrToX(const std::string& str) {
     stream >> result;
     return result;
 }
+
+// string rot13
+std::string Rot13(const std::string & str);
 
 }; // namespace base
