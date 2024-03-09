@@ -40,20 +40,24 @@ public:
 
     void Run()
     {
-        std::unique_lock<std::mutex> lock(m_mtx);
-        if (m_tasks.empty()) return;
+        std::unique_lock<std::mutex> lock(m_mtx, std::defer_lock);
 
-        const Clock::time_point now = Clock::now();
-        for (auto task = m_tasks.begin(); task != m_tasks.end(); )
+        if (lock.try_lock())
         {
-            if (task->first <= now)
+            if (m_tasks.empty()) return;
+
+            const Clock::time_point now = Clock::now();
+            for (auto task = m_tasks.begin(); task != m_tasks.end(); )
             {
-                task->second();
-                auto taskSaved = task;
-                task++;
-                task = m_tasks.erase(taskSaved);
+                if (task->first <= now)
+                {
+                    task->second();
+                    auto taskSaved = task;
+                    task++;
+                    task = m_tasks.erase(taskSaved);
+                }
+                else break;
             }
-            else break;
         }
     }
 
