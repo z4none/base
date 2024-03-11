@@ -80,42 +80,5 @@ std::wstring GetErrorMsg(DWORD errCode, DWORD lang)
     return msg;
 }
 
-//
-template<class T, class U, HWND(U::*m_hWnd)> T*
-InstanceFromWndProc(HWND hWnd, UINT uMsg, LPARAM lParam)
-{
-    T* pInstance;
-    if (uMsg == WM_NCCREATE)
-    {
-        LPCREATESTRUCT pCreateStruct = reinterpret_cast<LPCREATESTRUCT>(lParam);
-        pInstance = (T*)(pCreateStruct->lpCreateParams);
-        SetWindowLongPtrW(hWnd, GWLP_USERDATA, (LONG_PTR)(pInstance));
-        pInstance->*m_hWnd = hWnd;
-    }
-    else
-    {
-        pInstance = (T*)(GetWindowLongPtrW(hWnd, GWLP_USERDATA));
-    }
-
-    return pInstance;
-}
-
-//
-LRESULT CALLBACK CWindow::WndProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
-{
-    CWindow * window = InstanceFromWndProc<CWindow, CWindow, &CWindow::m_hWnd>(hWnd, uMsg, lParam);
-    if (window)
-    {
-        bool bHandled = false;
-        LRESULT ret = window->HandleWndProc(hWnd, uMsg, wParam, lParam, bHandled);
-        if (bHandled)
-        {
-            return ret;
-        }
-    }
-    return DefWindowProcW(hWnd, uMsg, wParam, lParam);
-}
-
-
 
 } // namespace base

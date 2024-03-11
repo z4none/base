@@ -31,6 +31,7 @@
     <ClInclude Include="base\task.h" />
     <ClInclude Include="base\throttle.h" />
     <ClInclude Include="base\win32.h" />
+    <ClInclude Include="base\win32_window.h" />
     <ClInclude Include="defer.h" />
   </ItemGroup>
   <ItemGroup>
@@ -43,6 +44,7 @@
     <ClCompile Include="base\string.cpp" />
     <ClCompile Include="base\datetime.cpp" />
     <ClCompile Include="base\win32.cpp" />
+    <ClCompile Include="base\win32_window.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
@@ -99,22 +101,22 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
     <OutDir>$(SolutionDir)lib\$(PlatformShortName)\$(Configuration)\</OutDir>
-    <IntDir>$(SolutionDir)build\$(PlatformShortName)\$(Configuration)\</IntDir>
+    <IntDir>$(ProjectDir)temp\$(PlatformShortName)\$(Configuration)\</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
     <OutDir>$(SolutionDir)lib\$(PlatformShortName)\$(Configuration)\</OutDir>
-    <IntDir>$(SolutionDir)build\$(PlatformShortName)\$(Configuration)\</IntDir>
+    <IntDir>$(ProjectDir)temp\$(PlatformShortName)\$(Configuration)\</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
     <OutDir>$(SolutionDir)lib\$(PlatformShortName)\$(Configuration)\</OutDir>
-    <IntDir>$(SolutionDir)build\$(PlatformShortName)\$(Configuration)\</IntDir>
+    <IntDir>$(ProjectDir)temp\$(PlatformShortName)\$(Configuration)\</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
     <OutDir>$(SolutionDir)lib\$(PlatformShortName)\$(Configuration)\</OutDir>
-    <IntDir>$(SolutionDir)build\$(PlatformShortName)\$(Configuration)\</IntDir>
+    <IntDir>$(ProjectDir)temp\$(PlatformShortName)\$(Configuration)\</IntDir>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
