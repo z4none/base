@@ -31,6 +31,7 @@
     <ClInclude Include="base\task.h" />
     <ClInclude Include="base\throttle.h" />
     <ClInclude Include="base\win32.h" />
+    <ClInclude Include="base\win32_console.h" />
     <ClInclude Include="base\win32_window.h" />
     <ClInclude Include="defer.h" />
   </ItemGroup>
@@ -44,6 +45,7 @@
     <ClCompile Include="base\string.cpp" />
     <ClCompile Include="base\datetime.cpp" />
     <ClCompile Include="base\win32.cpp" />
+    <ClCompile Include="base\win32_console.cpp" />
     <ClCompile Include="base\win32_window.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">

@@ -57,6 +57,9 @@
     <ClInclude Include="base\win32_window.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="base\win32_console.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="base\base.cpp">
@@ -87,6 +90,9 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="base\win32_window.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="base\win32_console.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>

@@ -1,7 +1,7 @@
 .vs
-build/*
-temp/*
-lib/*
+bin
+temp
+lib
 
 
 *.obj

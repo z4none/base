@@ -4,7 +4,6 @@
 #include <sstream>
 
 // ม๗ฯเนุ
-
 namespace base
 {
 class AtomicWriter {
