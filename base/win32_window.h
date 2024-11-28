@@ -46,14 +46,14 @@ private:
 //
 class CWindow
 {
-protected:
+public:
 
     HWND m_hWnd = NULL;
 
 public:
     CWindow() {}
     template<typename T>
-    static std::shared_ptr<T> Create(HINSTANCE hInstance, int nShowCmd)
+    static std::shared_ptr<T> Create(HINSTANCE hInstance, HWND parent = NULL,DWORD dwStyle = WS_OVERLAPPEDWINDOW | WS_CLIPCHILDREN | WS_CLIPSIBLINGS, DWORD dwExStyle=WS_EX_APPWINDOW, int nLeft= CW_USEDEFAULT, int nTop= CW_USEDEFAULT, int nWidth= CW_USEDEFAULT, int nHeight= CW_USEDEFAULT, int nShowCmd=SW_SHOW)
     {
         std::shared_ptr<T> window = std::make_shared<T>();
 
@@ -70,15 +70,15 @@ public:
         }
 
         HWND hWnd = CreateWindowExW(
-            0,
+            dwExStyle,
             window->WndClass(),
             window->Title(),
-            WS_OVERLAPPEDWINDOW | WS_CLIPCHILDREN | WS_CLIPSIBLINGS,
-            CW_USEDEFAULT,
-            CW_USEDEFAULT,
-            CW_USEDEFAULT,
-            CW_USEDEFAULT,
-            nullptr,
+            dwStyle,
+            nLeft,
+            nTop,
+            nWidth,
+            nHeight, 
+            parent,
             nullptr,
             hInstance,
             window.get());

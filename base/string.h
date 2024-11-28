@@ -3,6 +3,8 @@
 #include <string>
 #include <vector>
 
+#pragma warning(disable : 4996) 
+
 // 字符串相关
 
 namespace base
@@ -75,17 +77,20 @@ std::basic_string<T> Desensitize(const std::basic_string<T>& str, size_t left = 
 }
 
 // 格式化
-#ifdef _MSC_VER
 template<typename ... Args>
 std::wstring StrFormat(const std::wstring & format, Args ... args)
 {
-    size_t size = _snwprintf(nullptr, 0, format.c_str(), args ...) + 1; // Extra space for '\0'
+#ifdef _MSC_VER
+#define __snwprintf _snwprintf
+#else
+#define __snwprintf snwprintf
+#endif
+    size_t size = __snwprintf(nullptr, 0, format.c_str(), args ...) + 1; // Extra space for '\0'
     if (size <= 0) { throw std::runtime_error("Error during formatting."); }
     std::unique_ptr<wchar_t[]> buf(new wchar_t[size]);
-    _snwprintf(buf.get(), size, format.c_str(), args ...);
+    __snwprintf(buf.get(), size, format.c_str(), args ...);
     return std::wstring(buf.get(), buf.get() + size - 1); // We don't want the '\0' inside
 }
-#endif
 
 // 字符串格式化
 template<typename ... Args>

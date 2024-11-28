@@ -17,6 +17,9 @@ using namespace std::chrono;
 namespace base 
 {
 
+uint64_t GetTimeUs();
+uint64_t GetTimeMs();
+
 // 
 time_t Now();
 
