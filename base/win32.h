@@ -19,6 +19,12 @@ fs::path GetAppDataDir();
 // process
 DWORD GetProcessIdByName(LPCTSTR name, PROCESSENTRY32 * proc = nullptr);
 
+// thread
+void SetCurrentThreadName(const std::wstring name);
+
+
+// shell
+void ShowInExplorer(const fs::path & path);
 
 //
 class Dbg

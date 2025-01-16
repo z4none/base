@@ -57,6 +57,12 @@ DWORD GetProcessIdByName(LPCTSTR name, PROCESSENTRY32 * proc)
     return id;
 }
 
+// thread
+void SetCurrentThreadName(const std::wstring name)
+{
+    SetThreadDescription(GetCurrentThread(), name.c_str());
+}
+
 //
 std::wstring GetErrorMsg(DWORD errCode, DWORD lang)
 {
@@ -78,6 +84,18 @@ std::wstring GetErrorMsg(DWORD errCode, DWORD lang)
     }
 
     return msg;
+}
+
+void ShowInExplorer(const fs::path& path)
+{
+    CoInitialize(NULL);
+    ITEMIDLIST* pidl = ILCreateFromPath(path.wstring().c_str());
+    if (pidl)
+    {
+        SHOpenFolderAndSelectItems(pidl, 0, NULL, 0);
+        ILFree(pidl);
+    }
+    CoUninitialize();
 }
 
 
