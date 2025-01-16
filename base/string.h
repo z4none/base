@@ -2,6 +2,8 @@
 
 #include <string>
 #include <vector>
+#include <memory>
+#include <stdexcept>
 
 #pragma warning(disable : 4996) 
 
