@@ -24,7 +24,7 @@
     <ClInclude Include="base\path.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="base\pch.h">
+    <ClInclude Include="base\stdafx.h">
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="base\random.h">
@@ -45,9 +45,6 @@
     <ClInclude Include="base\throttle.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="defer.h">
-      <Filter>源文件</Filter>
-    </ClInclude>
     <ClInclude Include="base\task.h">
       <Filter>头文件</Filter>
     </ClInclude>
@@ -60,6 +57,12 @@
     <ClInclude Include="base\win32_console.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="base\defer.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="base\eventbus.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="base\base.cpp">
@@ -68,7 +71,7 @@
     <ClCompile Include="base\path.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="base\pch.cpp">
+    <ClCompile Include="base\stdafx.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="base\string.cpp">
