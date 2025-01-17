@@ -13,7 +13,7 @@ namespace base
 using namespace std::chrono;
 
 //
-class TaskRunner
+class TaskQueue
 {
     typedef milliseconds Ms;
     typedef steady_clock Clock;
@@ -24,8 +24,8 @@ class TaskRunner
     
 
 public:
-    TaskRunner() {}
-    virtual ~TaskRunner() { Clear(); }
+    TaskQueue() {}
+    virtual ~TaskQueue() { Clear(); }
 
     void SetTimeout(Ms ms, Task task) 
     {
