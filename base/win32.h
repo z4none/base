@@ -26,6 +26,9 @@ void SetCurrentThreadName(const std::wstring name);
 // shell
 void ShowInExplorer(const fs::path & path);
 
+fs::path OpenFileDialog();
+fs::path SaveFileDialog();
+
 //
 class Dbg
 {
