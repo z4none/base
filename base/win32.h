@@ -49,7 +49,7 @@ public:
 #ifdef _DEBUG
 #define DBG(x) base::Dbg() << _T(__FILE__) << L"(" << __LINE__ << L") : " << x;
 #else
-#define DBG() (void)0;
+#define DBG(x) (void)0;
 #endif
 
 // lang MAKELANGID(LANG_CHINESE, SUBLANG_DEFAULT)

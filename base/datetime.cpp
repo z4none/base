@@ -24,13 +24,13 @@ uint64_t base::GetTimeMs()
 
 
 //
-time_t Now()
-{
-    return duration_cast<milliseconds>(system_clock::now().time_since_epoch()).count();
-}
+//time_t Now()
+//{
+//    return duration_cast<milliseconds>(system_clock::now().time_since_epoch()).count();
+//}
 
 //
-std::string StrFormatTime(const std::string& format, time_t t, bool tz)
+std::string StrFormatTime(time_t t, const std::string& format, bool tz)
 {
     if (t == 0)
     {

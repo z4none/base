@@ -12,7 +12,7 @@
 ////
 //class CWinMain : public base::CWindow
 //{
-//    base::TaskRunner m_taskRunnner;
+//    base::TaskQueue m_taskRunnner;
 //public:
 //    virtual LRESULT CALLBACK HandleWndProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam, bool & bHandled) override
 //    {
@@ -97,7 +97,7 @@ uint64_t fab(uint64_t x)
 int main()
 {
 
-    base::TaskRunner task_runner;
+    base::TaskQueue task_runner;
     task_runner.SetTimeout(1000ms, [](){
         base::AtomicWriter() << "call 1" << std::endl;
     });
