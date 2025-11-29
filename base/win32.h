@@ -1,6 +1,6 @@
 #pragma once
 
-// windows API Ïà¹Ø
+// windows API ï¿½ï¿½ï¿½
 #include <Windows.h>
 #include <tchar.h>
 #include <Tlhelp32.h>
@@ -26,8 +26,10 @@ void SetCurrentThreadName(const std::wstring name);
 // shell
 void ShowInExplorer(const fs::path & path);
 
-fs::path OpenFileDialog();
-fs::path SaveFileDialog();
+fs::path OpenFileDialog(HWND hwndOwner, const std::wstring& title=L"", const std::wstring& initialDir=L"", 
+                        const std::wstring& filter=L"", DWORD flags=0);
+fs::path SaveFileDialog(HWND hwndOwner, const std::wstring& title=L"", const std::wstring& initialDir=L"", 
+                        const std::wstring& filter=L"", DWORD flags=0);
 
 //
 class Dbg
