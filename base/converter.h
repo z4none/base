@@ -4,7 +4,6 @@
 #include <string>
 #include "iconv/iconv.h"
 
-// ±àÂë×ª»»Ïà¹Ø
 namespace base
 {
 
