@@ -46,13 +46,23 @@ public:
 
     ~Dbg()
     {
-        std::wstring str = m_stream.str() + L"\n";
+        // 获取当前时间
+        SYSTEMTIME st;
+        GetLocalTime(&st);
+
+        // 格式化时间字符串 [hh:mm:ss.ms]
+        wchar_t timeStr[20];
+        swprintf_s(timeStr, L"[%02d:%02d:%02d.%03d] ", st.wHour, st.wMinute, st.wSecond, st.wMilliseconds);
+
+        // 拼接时间和原始消息
+        std::wstring str = timeStr + m_stream.str() + L"\n";
         OutputDebugStringW(str.c_str());
     }
 };
 
 #ifdef _DEBUG
-#define DBG(x) base::Dbg() << _T(__FILE__) << L"(" << __LINE__ << L") : " << x;
+// #define DBG(x) base::Dbg() << _T(__FILE__) << L"(" << __LINE__ << L") : " << x;
+#define DBG(x) base::Dbg() << x;
 #else
 #define DBG(x) (void)0;
 #endif
